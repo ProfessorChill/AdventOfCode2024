@@ -1,16 +1,7 @@
-use std::fs::File;
-use std::io::{self, BufRead};
 use std::iter::zip;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where
-    P: AsRef<Path>,
-{
-    let file = File::open(filename)?;
-
-    Ok(io::BufReader::new(file).lines())
-}
+use utils::read_lines;
 
 fn main() {
     let mut file_path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
